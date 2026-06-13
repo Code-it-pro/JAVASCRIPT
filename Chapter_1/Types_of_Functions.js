@@ -1,6 +1,7 @@
 // Types of functions
 
 // Normal functions
+// Normal 
 function Normal() {
     console.log("Im a normal Function")
 }
