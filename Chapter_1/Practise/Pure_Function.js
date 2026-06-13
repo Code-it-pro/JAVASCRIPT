@@ -1,6 +1,5 @@
-function PureFunction(value){
-    value +=1;
-    console.log("Pure Function");
+function Square(value){
+    return value * value;
 }
 
-PureFunction(5)
+console.log(Square(23523))
