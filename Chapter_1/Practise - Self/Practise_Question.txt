@@ -1,0 +1,110 @@
+========================================================================
+                      JAVASCRIPT PRACTICE QUESTIONS
+========================================================================
+
+These questions are tailored to your current progress in JavaScript, covering
+variables, loops, conditionals, function types, pure/impure functions, 
+closures, and higher-order functions (HOF).
+
+------------------------------------------------------------------------
+SECTION 1: Control Flow & Loops (Logic Building)
+------------------------------------------------------------------------
+
+1. FizzBuzz Variant:
+   Write a program that loops through numbers from 1 to 50:
+   - For multiples of 4, print "Fizz".
+   - For multiples of 6, print "Buzz".
+   - For multiples of both 4 and 6, print "FizzBuzz".
+   - For all other numbers, just print the number.
+
+2. Prime Number Finder:
+   Write a function named `isPrime(num)` that returns `true` if a number 
+   is prime, and `false` otherwise. 
+   Then, write a loop to print all prime numbers between 1 and 30 using 
+   this function.
+
+3. Factorial Calculator:
+   Write a function `factorial(n)` that calculates and returns the 
+   factorial of a given number `n` using a loop. 
+   (e.g., factorial(5) should calculate 5 * 4 * 3 * 2 * 1 = 120).
+
+------------------------------------------------------------------------
+SECTION 2: Function Types (Arrows, Expressions, IIFEs)
+------------------------------------------------------------------------
+
+4. Temperature Converter:
+   - Write an Arrow Function `celsiusToFahrenheit(c)` that takes Celsius 
+     and returns Fahrenheit.
+   - Write a Function Expression `fahrenheitToCelsius(f)` that takes 
+     Fahrenheit and returns Celsius.
+   (Formula: F = C * 9/5 + 32)
+
+5. Simple Calculator with Operations:
+   Write a function expression `calculate(a, b, operation)` that takes 
+   two numbers and a string representing the operation ('+', '-', '*', '/'). 
+   Return the result of the operation.
+
+6. Immediately Invoked Function Expression (IIFE):
+   Write an IIFE that prints a welcome message containing a default username 
+   like "Guest", but checks if a variable `userRole` is set to "Admin" 
+   first. If `userRole` is "Admin", print "Welcome Admin!".
+
+------------------------------------------------------------------------
+SECTION 3: Pure & Impure Functions
+------------------------------------------------------------------------
+
+7. Refactoring to a Pure Function:
+   The following function is impure because it relies on and modifies a 
+   global variable. Refactor it to be a pure function.
+   
+   ```javascript
+   let cartTotal = 100;
+   function addTax() {
+       cartTotal = cartTotal + (cartTotal * 0.18);
+   }
+   ```
+   
+   Explain why your version is pure.
+
+------------------------------------------------------------------------
+SECTION 4: Closures (Data Privacy & Scopes)
+------------------------------------------------------------------------
+
+8. Secure Bank Account:
+   Write a function `createBankAccount(initialBalance)` that uses closure 
+   to keep the balance private (hidden from the outside scope). 
+   The function should return an object with three methods:
+   - `deposit(amount)`: increases the balance.
+   - `withdraw(amount)`: decreases the balance if there is enough money; 
+     otherwise, prints "Insufficient balance".
+   - `getBalance()`: returns the current balance.
+
+9. Dynamic Prefix Generator:
+   Write a function `prefixGenerator(prefix)` that returns a new function. 
+   The returned function should accept a `name` string and print/return 
+   the prefix followed by the name.
+   
+   Example usage:
+   ```javascript
+   let mrPrefix = prefixGenerator("Mr. ");
+   console.log(mrPrefix("John")); // Output: "Mr. John"
+   
+   let drPrefix = prefixGenerator("Dr. ");
+   console.log(drPrefix("Smith")); // Output: "Dr. Smith"
+   ```
+
+------------------------------------------------------------------------
+SECTION 5: Higher-Order Functions (HOFs)
+------------------------------------------------------------------------
+
+10. Custom Array Filter:
+    Write a higher-order function `filterArray(arr, callback)` that mimics 
+    the native JavaScript filter behavior:
+    - It should loop through the input array `arr`.
+    - Apply the `callback` function (which should return `true` or `false`) 
+      to each item.
+    - Return a new array containing only the items for which the 
+      `callback` returned `true`.
+    
+    Test it by passing an array of numbers and a callback function that 
+    checks if a number is even.
