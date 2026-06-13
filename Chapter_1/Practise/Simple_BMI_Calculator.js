@@ -3,4 +3,4 @@ function BMI(weight, height) {
     return BMI;
 }
 
-console.log("BMI : " + BMI(75, 5.60))
+console.log("BMI : " + Math.round(BMI(75, 5.60)))
