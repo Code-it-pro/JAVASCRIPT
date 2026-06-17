@@ -1,0 +1,132 @@
+========================================================================
+                      JAVASCRIPT REVISION PRACTICE QUESTIONS
+========================================================================
+
+Welcome to Practice-2! These questions are designed to reinforce and advance 
+your understanding of JavaScript fundamentals: loops, conditionals, function 
+types, pure/impure functions, scoping, closures, and higher-order functions.
+
+------------------------------------------------------------------------
+SECTION 1: Control Flow & Loops (Logic Building)
+------------------------------------------------------------------------
+
+1. Fibonacci Sequence Generator:
+   Write a function `generateFibonacci(n)` that returns an array containing 
+   the first `n` numbers of the Fibonacci sequence.
+   - For example: `generateFibonacci(5)` should return `[0, 1, 1, 2, 3]`.
+   - Make sure your function handles edge cases where `n <= 0` (return empty array) 
+     or `n === 1` (return `[0]`).
+
+2. Find the Second Largest Number:
+   Write a function `findSecondLargest(arr)` that takes an array of numbers and 
+   returns the second largest number.
+   - Do NOT use the built-in `arr.sort()` method or `Math.max()`.
+   - For example: `findSecondLargest([10, 5, 20, 8, 20, 12])` should return `12`.
+   - Handle cases where the array has fewer than 2 unique numbers.
+
+3. String Reverser (Without Built-in Methods):
+   Write a function `reverseString(str)` that reverses a string manually using 
+   a loop. 
+   - Do NOT use `str.split('').reverse().join('')`.
+   - For example: `reverseString("javascript")` should return `"tpircsavaj"`.
+
+------------------------------------------------------------------------
+SECTION 2: Function Types, IIFEs & Scoping
+------------------------------------------------------------------------
+
+4. IIFE Module Pattern (Private Variables):
+   Write an Immediately Invoked Function Expression (IIFE) that returns a 
+   `CalculatorModule` object.
+   - The module should keep a private variable `operationCount` initialized to 0.
+   - It should expose three methods:
+     - `add(a, b)`: returns `a + b` and increments `operationCount` by 1.
+     - `subtract(a, b)`: returns `a - b` and increments `operationCount` by 1.
+     - `getOperationCount()`: returns the current value of `operationCount`.
+   - The private `operationCount` variable should not be directly modifiable 
+     from the outside.
+
+5. Delayed Greeting (Closure & Callback):
+   Write a function `delayedGreeting(name, delayMs)` that takes a person's 
+   name and a time delay in milliseconds.
+   - Use `setTimeout` inside your function to print `"Hello, [name]!"` to the 
+     console after the delay has passed.
+   - Explain (in a comment) how closure allows the inner callback function to 
+     remember and access the `name` parameter even after `delayedGreeting` 
+     has finished executing.
+
+------------------------------------------------------------------------
+SECTION 3: Pure & Impure Functions
+------------------------------------------------------------------------
+
+6. Refactoring & Identifying Purity:
+   Examine the two functions below. Identify which one is impure, explain why, 
+   and refactor it to be a pure function.
+
+   Function A:
+   ```javascript
+   let discountRate = 0.15;
+   function applyDiscount(price) {
+       return price - (price * discountRate);
+   }
+   ```
+
+   Function B:
+   ```javascript
+   function generateUserId(username) {
+       const randomNum = Math.floor(Math.random() * 1000);
+       return `${username}_${randomNum}`;
+   }
+   ```
+
+------------------------------------------------------------------------
+SECTION 4: Closures (Data Privacy & Advanced Scope)
+------------------------------------------------------------------------
+
+7. Custom Counter with Step and Reset:
+   Write a function `createCounter(step)` that uses closure to keep track of a 
+   count (starting at 0).
+   - Each time the returned function is called, it should increment the count 
+     by the specified `step` and return the new count.
+   - Attach a `.reset()` method to the returned function that resets the count 
+     back to 0.
+   - Example usage:
+     ```javascript
+     const countByThree = createCounter(3);
+     console.log(countByThree()); // 3
+     console.log(countByThree()); // 6
+     countByThree.reset();
+     console.log(countByThree()); // 3
+     ```
+
+8. Simple Memoization/Caching:
+   Write a higher-order function `memoize(fn)` that takes a single-argument 
+   function `fn` and returns a new function.
+   - The returned function should cache the results of previous function executions.
+   - If called again with the same argument, it should return the cached value 
+     instead of re-running the function.
+   - (Tip: Use a JavaScript object inside the closure scope to store inputs as 
+     keys and outputs as values).
+
+------------------------------------------------------------------------
+SECTION 5: Higher-Order Functions (HOFs)
+------------------------------------------------------------------------
+
+9. Custom Array Map & Reduce:
+   Write two higher-order functions from scratch:
+   - `customMap(arr, callback)`: returns a new array with the callback applied 
+     to each element. (Do not use `arr.map()`).
+   - `customReduce(arr, callback, initialValue)`: reduces an array to a single 
+     value using the callback. (Do not use `arr.reduce()`).
+
+10. Function Composition:
+    Write a higher-order function `compose(f, g)` that takes two functions 
+    `f` and `g` as arguments and returns a new function.
+    - When the returned function is called with a value `x`, it should compute 
+      `f(g(x))`.
+    - Example:
+      ```javascript
+      const double = x => x * 2;
+      const addFive = x => x + 5;
+      const doubleThenAddFive = compose(addFive, double);
+      console.log(doubleThenAddFive(10)); // Output: 25 ((10 * 2) + 5)
+      ```
