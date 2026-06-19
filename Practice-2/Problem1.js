@@ -19,6 +19,9 @@ function generateFibonacci(n){
 }
 
 num = 5
-generateFibonacci(num)
+fib = []
+for(let i = 0 ;i <= num-1 ; i++){
+    fib[i] = generateFibonacci(num)
+}
 
-console.log(a)
+console.log()
