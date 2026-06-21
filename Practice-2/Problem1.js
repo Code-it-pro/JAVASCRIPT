@@ -1,27 +1,20 @@
 // Fibonacci Sequence Generatot
 
 function generateFibonacci(n){
-    let fib = 0
-    a = []
-    if( n <= 0){
-        return []
+    if (n <= 0) {
+        return [];
     }
-    if(n == 1){
-        return [1]
+    if (n === 1) {
+        return [0];
     }
-    for (let j = 0 ; j >=n;j++){
-        for (let i = j ;i < j-2 ; i--){
-            fib = fib + i
-        }
-        a[i] = fib
+    const result = [0, 1];
+    for (let i = 2; i < n; i++) {
+        result[i] = result[i - 1] + result[i - 2];
     }
-    return a
+    return result;
 }
 
-num = 5
-fib = []
-for(let i = 0 ;i <= num-1 ; i++){
-    fib[i] = generateFibonacci(num)
-}
+const num = 5;
+const fib = generateFibonacci(num);
 
-console.log()
+console.log(fib);
